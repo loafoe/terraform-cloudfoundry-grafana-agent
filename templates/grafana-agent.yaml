@@ -2,10 +2,12 @@ traces:
   configs:
   - name: default
     remote_write:
-      - endpoint: ${TEMPO_HOST:-localhost:4317}
+      - endpoint: ${TEMPO_HOST}
         insecure: true
     receivers:
       jaeger:
         protocols:
           thrift_http:
 
+server:
+  log_level: info

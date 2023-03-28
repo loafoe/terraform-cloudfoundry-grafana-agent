@@ -1,5 +1,11 @@
 locals {
   postfix = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
+
+  command = "echo GRAFANA_AGENT_CONFIG_BASE64|base64 -d > /etc/agent/agent.yaml && /usr/bin/grafana-agent -config.file=/etc/agent/agent.yaml"
+
+  grafana_agent_config = templatefile("${path.module}/templates/grafana-agent.yaml", {
+    TEMPO_HOST = var.tempo_host
+  })
 }
 
 resource "random_id" "id" {
@@ -20,7 +26,9 @@ resource "cloudfoundry_app" "grafana_agent" {
   memory       = var.memory
   disk_quota   = var.disk
   docker_image = var.grafana_agent_image
-  environment  = merge({}, var.environment)
+  environment  = merge({
+    GRAFANA_AGENT_CONFIG_BASE64   = base64encode(local.grafana_agent_config)
+  }, var.environment)
   strategy     = var.strategy
 
   //noinspection HCLUnknownBlockType

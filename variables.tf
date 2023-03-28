@@ -35,6 +35,11 @@ variable "s3_broker_settings" {
   description = "The S3 service broker to use"
 }
 
+variable "tempo_host" {
+  description = "The Tempo host."
+  type = string
+  default = "localhost:4317"
+}
 
 variable "network_policies" {
   description = "The container-to-container network policies to create with Grafana Agent as the destination app"
