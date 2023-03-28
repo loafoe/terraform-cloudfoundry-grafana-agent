@@ -29,7 +29,8 @@ resource "cloudfoundry_app" "grafana_agent" {
   environment = merge({
     GRAFANA_AGENT_CONFIG_BASE64 = base64encode(local.grafana_agent_config)
   }, var.environment)
-  strategy = var.strategy
+  health_check_type = "process"
+  strategy          = var.strategy
 
   //noinspection HCLUnknownBlockType
   routes {
