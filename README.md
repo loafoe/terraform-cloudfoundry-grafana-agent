@@ -55,11 +55,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_tempo_app_id"></a> [tempo\_app\_id](#output\_tempo\_app\_id) | The Tempo apps' id |
-| <a name="output_tempo_internal_endpoint"></a> [tempo\_internal\_endpoint](#output\_tempo\_internal\_endpoint) | The internal endpoint where Tempo is reachable on |
-| <a name="output_tempo_proxy_endpoint"></a> [tempo\_proxy\_endpoint](#output\_tempo\_proxy\_endpoint) | The endpoint where Tempo is reachable on |
-| <a name="output_tempo_proxy_password"></a> [tempo\_proxy\_password](#output\_tempo\_proxy\_password) | The endpoint where Tempo is reachable on |
-| <a name="output_tempo_proxy_username"></a> [tempo\_proxy\_username](#output\_tempo\_proxy\_username) | The endpoint where Tempo is reachable on |
+| <a name="output_grafana_agent_app_id"></a> [grafana\_agent\_app\_id](#output\_grafana\_agent\_app\_id) | The Grafan Agent apps' id |
+| <a name="output_grafana_agent_internal_endpoint"></a> [grafana\_agent\_internal\_endpoint](#output\_grafana\_agent\_internal\_endpoint) | The internal endpoint where Grafana Agent is reachable on |
 <!-- END_TF_DOCS -->
 
 ## Contact / Getting help

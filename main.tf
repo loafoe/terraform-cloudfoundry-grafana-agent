@@ -26,14 +26,14 @@ resource "cloudfoundry_app" "grafana_agent" {
   memory       = var.memory
   disk_quota   = var.disk
   docker_image = var.grafana_agent_image
-  environment  = merge({
-    GRAFANA_AGENT_CONFIG_BASE64   = base64encode(local.grafana_agent_config)
+  environment = merge({
+    GRAFANA_AGENT_CONFIG_BASE64 = base64encode(local.grafana_agent_config)
   }, var.environment)
-  strategy     = var.strategy
+  strategy = var.strategy
 
   //noinspection HCLUnknownBlockType
   routes {
-    route = cloudfoundry_route.tempo_internal.id
+    route = cloudfoundry_route.grafana_agent_internal.id
   }
 }
 
